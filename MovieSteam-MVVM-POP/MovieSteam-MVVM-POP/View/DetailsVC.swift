@@ -19,6 +19,7 @@ class DetailsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
     }
     
@@ -27,6 +28,8 @@ class DetailsVC: UIViewController {
     }
     
     @IBAction func addToCartPressed(_ sender: UIButton) {
+        
+        
         
     }
 
@@ -42,5 +45,11 @@ class DetailsVC: UIViewController {
             
         }
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "" {
+            
+            
+        }
     }
 }

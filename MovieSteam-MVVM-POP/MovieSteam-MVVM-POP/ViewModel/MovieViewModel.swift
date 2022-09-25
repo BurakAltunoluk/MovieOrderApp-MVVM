@@ -7,6 +7,44 @@
 
 import Foundation
 
+struct ShoppingCartViewModel {
+    
+    var addedToBasket: [ShoppingCart]
+    
+  
+    func rowNumberOfSection() -> Int {
+        return self.addedToBasket.count
+    }
+    
+    mutating func deleteMovie(_ row:Int) {
+        
+        addedToBasket.remove(at:row)
+        
+    }
+    
+    func movieAtIndex(_ index:Int) -> ShoppingCart {
+        let movieAtIndex = addedToBasket[index]
+        return movieAtIndex
+    }
+    
+    mutating func addNew(name: String, price: String) {
+       
+        self.addedToBasket.append(contentsOf: [ShoppingCart.init(movieName: name, MoviePrice: price)])
+       
+    }
+    
+    func totalPayment() -> Double {
+        var total = 0.0
+        for i in 0..<self.addedToBasket.count {
+            
+            let ass = Double(addedToBasket[i].MoviePrice)!
+            total += ass
+            
+        }
+        return total
+    }
+    
+}
 
 
 struct MovieViewModel {
@@ -34,7 +72,7 @@ struct MovieViewModel {
     
 }
 
-struct MovieListViewModel {             // Film listesi
+struct MovieListViewModel {             
     var movieDataList: [MovieModel]
     
     func rowNumberSection() -> Int {

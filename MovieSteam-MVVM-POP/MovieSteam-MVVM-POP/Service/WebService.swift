@@ -21,6 +21,7 @@ struct WebService {
                 let movieDetails = try? JSONDecoder().decode([MovieModel].self, from: data)
                 
                 if movieDetails != nil {
+                 //   print(movieDetails)
                 completion(movieDetails)
                
                 }

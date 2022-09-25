@@ -13,3 +13,8 @@ struct MovieModel: Decodable {
     let price: String
     let pictureUrl: String
 }
+
+struct ShoppingCart {
+    var movieName: String
+    var MoviePrice: String
+}

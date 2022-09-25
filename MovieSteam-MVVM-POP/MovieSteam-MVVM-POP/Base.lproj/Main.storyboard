@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="115" width="414" height="681"/>
                                 <color key="separatorColor" red="0.20492514009999999" green="0.2493243164" blue="0.30008452730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" rowHeight="180" id="Cwd-9N-OPF" customClass="TableViewCell" customModule="MovieSteam_MVVM_POP" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" rowHeight="180" id="Cwd-9N-OPF" customClass="MoviesTableViewCell" customModule="MovieSteam_MVVM_POP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cwd-9N-OPF" id="maY-z5-Bx1">
@@ -132,7 +132,7 @@
         <!--Cart-->
         <scene sceneID="a22-rU-Khr">
             <objects>
-                <viewController id="Y3m-Mv-bgG" sceneMemberID="viewController">
+                <viewController id="Y3m-Mv-bgG" customClass="ShoppingCartVC" customModule="MovieSteam_MVVM_POP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dO6-iA-KST">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,6 +143,53 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="424" id="ubB-bb-Svy"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="50" id="Oux-KE-m4F" customClass="CartTableViewCell" customModule="MovieSteam_MVVM_POP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oux-KE-m4F" id="lLD-2Q-hjS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£23.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="iN5-Xv-dNm">
+                                                    <rect key="frame" x="335" y="0.0" width="79" height="50"/>
+                                                    <color key="backgroundColor" red="0.82027918498854169" green="0.82027918498854169" blue="0.82027918498854169" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="79" id="HDc-lG-6FQ"/>
+                                                        <constraint firstAttribute="height" constant="50" id="bco-1A-Vne"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="NotoSansMyanmar-Bold" family="Noto Sans Myanmar" pointSize="21"/>
+                                                    <color key="textColor" red="0.20492514009999999" green="0.2493243164" blue="0.30008452730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-Martix" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3I-4d-yH3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                                    <color key="backgroundColor" red="0.94407272340000004" green="0.94407272340000004" blue="0.94407272340000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansMyanmar-Bold" family="Noto Sans Myanmar" pointSize="24"/>
+                                                    <color key="textColor" red="0.20492514009999999" green="0.2493243164" blue="0.30008452730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="E3I-4d-yH3" firstAttribute="top" secondItem="lLD-2Q-hjS" secondAttribute="top" id="2vT-rd-ATD"/>
+                                                <constraint firstItem="E3I-4d-yH3" firstAttribute="leading" secondItem="lLD-2Q-hjS" secondAttribute="leading" id="5T4-N4-OXY"/>
+                                                <constraint firstItem="iN5-Xv-dNm" firstAttribute="leading" secondItem="E3I-4d-yH3" secondAttribute="trailing" id="GCv-Rf-CZN"/>
+                                                <constraint firstAttribute="trailing" secondItem="iN5-Xv-dNm" secondAttribute="trailing" id="VRa-0z-xAp"/>
+                                                <constraint firstItem="iN5-Xv-dNm" firstAttribute="top" secondItem="lLD-2Q-hjS" secondAttribute="top" id="gOB-Wo-lAl"/>
+                                                <constraint firstItem="E3I-4d-yH3" firstAttribute="bottom" secondItem="iN5-Xv-dNm" secondAttribute="bottom" id="hW3-Ci-YxI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.26120616890826381" green="0.31988767111146033" blue="0.38910455700377611" alpha="0.63055151114192032" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="movieNameLabel" destination="E3I-4d-yH3" id="Fle-f3-wZe"/>
+                                            <outlet property="moviePriceLabel" destination="iN5-Xv-dNm" id="3J8-W7-PbV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y3m-Mv-bgG" id="Cq9-Mo-kGm"/>
+                                    <outlet property="delegate" destination="Y3m-Mv-bgG" id="xfw-xI-w0T"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yn9-4v-agf">
                                 <rect key="frame" x="0.0" y="55" width="414" height="50"/>
@@ -154,7 +201,7 @@
                                 <color key="textColor" red="0.93094104529999999" green="0.74973845480000001" blue="0.35283601279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Total:  £30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giW-iG-U0M">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Total:  £30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="giW-iG-U0M">
                                 <rect key="frame" x="0.0" y="557" width="254" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1513469999" green="0.18413791139999999" blue="0.22162675060000001" alpha="0.79384387710000004" colorSpace="custom" customColorSpace="displayP3"/>
@@ -197,10 +244,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" badgeValue="1" selectedImage="cart" id="ewV-KB-Qb3"/>
+                    <connections>
+                        <outlet property="tableView" destination="YIt-iJ-p9e" id="eQ4-a1-JSi"/>
+                        <outlet property="totalLabel" destination="giW-iG-U0M" id="ccS-uo-FaI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C79-ZG-Znb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2752" y="265"/>
+            <point key="canvasLocation" x="2750.7246376811595" y="264.50892857142856"/>
         </scene>
         <!--DetailsVC-->
         <scene sceneID="Nia-C7-X1k">
