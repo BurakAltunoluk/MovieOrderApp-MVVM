@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
+        <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="MovieSteam_MVVM_POP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Movies" id="BYZ-38-t0r" customClass="MainVC" customModule="MovieSteam_MVVM_POP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,11 +116,12 @@
                             <constraint firstItem="ljI-T8-8zo" firstAttribute="top" secondItem="qY7-KL-GIY" secondAttribute="bottom" constant="10" id="wM1-oI-gc7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Main" image="house" catalog="system" id="4E4-Zp-mdJ">
+                    <tabBarItem key="tabBarItem" title="Movies" image="house" catalog="system" id="4E4-Zp-mdJ">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageReference key="selectedImage" image="house" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="film" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="tabbarItem" destination="4E4-Zp-mdJ" id="Bqx-Qu-bqJ"/>
                         <outlet property="tableView" destination="dLU-1c-Vbr" id="T8i-3v-ru5"/>
                         <segue destination="kgH-NJ-2un" kind="show" identifier="showDetails" id="Jyy-3U-1oK"/>
                     </connections>
@@ -132,23 +133,22 @@
         <!--Cart-->
         <scene sceneID="a22-rU-Khr">
             <objects>
-                <viewController id="Y3m-Mv-bgG" customClass="ShoppingCartVC" customModule="MovieSteam_MVVM_POP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Cart" id="Y3m-Mv-bgG" customClass="ShoppingCartVC" customModule="MovieSteam_MVVM_POP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dO6-iA-KST">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YIt-iJ-p9e">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YIt-iJ-p9e">
                                 <rect key="frame" x="0.0" y="115" width="414" height="424"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="424" id="ubB-bb-Svy"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="50" id="Oux-KE-m4F" customClass="CartTableViewCell" customModule="MovieSteam_MVVM_POP" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="53" id="Oux-KE-m4F" customClass="CartTableViewCell" customModule="MovieSteam_MVVM_POP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oux-KE-m4F" id="lLD-2Q-hjS">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£23.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="iN5-Xv-dNm">
@@ -218,6 +218,9 @@
                                     <color key="baseForegroundColor" red="1" green="0.92740220939999995" blue="0.420544694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="0.82648433050000003" green="0.28343486220000003" blue="0.2635336513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="payButtonPressed:" destination="Y3m-Mv-bgG" eventType="touchUpInside" id="NMA-9R-NGp"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i29-Rz-jZo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
@@ -243,7 +246,7 @@
                             <constraint firstItem="i29-Rz-jZo" firstAttribute="top" secondItem="dO6-iA-KST" secondAttribute="top" id="zjO-R8-I0o"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" badgeValue="1" selectedImage="cart" id="ewV-KB-Qb3"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" selectedImage="cart" id="ewV-KB-Qb3"/>
                     <connections>
                         <outlet property="tableView" destination="YIt-iJ-p9e" id="eQ4-a1-JSi"/>
                         <outlet property="totalLabel" destination="giW-iG-U0M" id="ccS-uo-FaI"/>
@@ -294,16 +297,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="l8o-bu-bQN"/>
                                 </constraints>
+                                <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Add Cart £30">
-                                            <attributes>
-                                                <font key="NSFont" size="16" name="Helvetica"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" red="1" green="0.9274022093718074" blue="0.42054469398799921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="0.82648433050000003" green="0.28343486220000003" blue="0.2635336513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -311,14 +307,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05z-Em-E9n">
-                                <rect key="frame" x="20" y="699" width="91" height="31"/>
+                                <rect key="frame" x="20" y="699" width="105" height="31"/>
                                 <color key="backgroundColor" red="0.80568622352265629" green="0.65009880303606382" blue="0.31144173346253939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="W2w-iV-e12"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="&lt;- Back" buttonSize="large">
-                                    <color key="baseForegroundColor" red="0.8291381001" green="0.28334993120000002" blue="0.26271766419999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <buttonConfiguration key="configuration" style="plain" buttonSize="large">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="&lt;- Back">
+                                            <attributes>
+                                                <font key="NSFont" size="19" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" red="0.26120616889999998" green="0.31988767109999999" blue="0.38910455700000002" alpha="0.63055151109999996" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="kgH-NJ-2un" eventType="touchUpInside" id="fl9-6A-TgR"/>
@@ -366,20 +369,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="z87-sE-Ypm"/>
                     <connections>
-                        <outlet property="backButton" destination="K1M-Uu-OcF" id="Iud-Rw-ASx"/>
+                        <outlet property="addToCartOutlet" destination="K1M-Uu-OcF" id="7rb-Uf-maC"/>
                         <outlet property="movieDetails" destination="xiJ-WU-LOR" id="ivO-hz-qzg"/>
                         <outlet property="movieImage" destination="QMp-Vv-Ym9" id="L2k-Ru-gr4"/>
                         <outlet property="movieTitle" destination="C0O-ef-oNq" id="K1K-FN-ZCt"/>
+                        <segue destination="Y3m-Mv-bgG" kind="presentation" identifier="toCart" modalPresentationStyle="fullScreen" id="40S-AV-XaM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4K9-w0-dXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3794" y="-110"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar Controller-->
         <scene sceneID="aff-9n-34r">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="IWi-H9-yoY" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="IWi-H9-yoY" customClass="TabbarController" customModule="MovieSteam_MVVM_POP" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M3w-zA-IXW">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -398,12 +402,19 @@
             <point key="canvasLocation" x="1268" y="-55"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tqa-D8-Ypl"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="film" catalog="system" width="128" height="93"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="matrix" width="220" height="326"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

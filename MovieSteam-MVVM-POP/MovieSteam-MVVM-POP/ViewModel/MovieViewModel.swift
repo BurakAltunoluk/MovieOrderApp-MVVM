@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct ShoppingCartViewModel {
     
     var addedToBasket: [ShoppingCart]
@@ -16,9 +17,12 @@ struct ShoppingCartViewModel {
         return self.addedToBasket.count
     }
     
-    mutating func deleteMovie(_ row:Int) {
+    mutating func deleteMovie(_ row:Int) -> Double {
         
         addedToBasket.remove(at:row)
+    
+        return totalPayment()
+    
         
     }
     
@@ -36,10 +40,8 @@ struct ShoppingCartViewModel {
     func totalPayment() -> Double {
         var total = 0.0
         for i in 0..<self.addedToBasket.count {
-            
-            let ass = Double(addedToBasket[i].MoviePrice)!
-            total += ass
-            
+            let eachTotal = Double(addedToBasket[i].MoviePrice)!
+            total += eachTotal
         }
         return total
     }

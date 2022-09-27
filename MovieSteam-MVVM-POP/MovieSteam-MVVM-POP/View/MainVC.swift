@@ -8,14 +8,28 @@
 import UIKit
 
 class MainVC: UIViewController {
-    
+    var a = 0
+    @IBOutlet var tabbarItem: UITabBarItem!
     @IBOutlet var tableView: UITableView!
     private var choosedRowNumber = 0
     private var movieListViewModel: MovieListViewModel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if a == 1 {
+        self.tabBarController?.selectedIndex = 1
+         a = 0
+        }
+        print(a)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getDataFromApi()
+        
+      
     }
     
     func getDataFromApi () {
