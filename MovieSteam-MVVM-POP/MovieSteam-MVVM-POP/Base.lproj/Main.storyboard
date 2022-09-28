@@ -116,7 +116,7 @@
                             <constraint firstItem="ljI-T8-8zo" firstAttribute="top" secondItem="qY7-KL-GIY" secondAttribute="bottom" constant="10" id="wM1-oI-gc7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" image="house" catalog="system" id="4E4-Zp-mdJ">
+                    <tabBarItem key="tabBarItem" title="Movies" image="film" catalog="system" id="4E4-Zp-mdJ">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <imageReference key="selectedImage" image="film" catalog="system" symbolScale="large"/>
                     </tabBarItem>
@@ -408,7 +408,6 @@
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="film" catalog="system" width="128" height="93"/>
-        <image name="house" catalog="system" width="128" height="106"/>
         <image name="matrix" width="220" height="326"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

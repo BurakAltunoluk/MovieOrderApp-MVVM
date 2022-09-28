@@ -7,32 +7,19 @@
 
 import UIKit
 
-class MainVC: UIViewController {
-    var a = 0
-    @IBOutlet var tabbarItem: UITabBarItem!
-    @IBOutlet var tableView: UITableView!
+final class MainVC: UIViewController {
+   
+    @IBOutlet private var tabbarItem: UITabBarItem!
+    @IBOutlet private var tableView: UITableView!
     private var choosedRowNumber = 0
     private var movieListViewModel: MovieListViewModel!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if a == 1 {
-        self.tabBarController?.selectedIndex = 1
-         a = 0
-        }
-        print(a)
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getDataFromApi()
-        
-      
     }
     
-    func getDataFromApi () {
+    private func getDataFromApi () {
         let url = URL(string: "https://raw.githubusercontent.com/BurakAltunoluk/APIs-Sample/main/MoviesAPI.json")!
         
         WebService().getData(url: url) { data in
@@ -50,9 +37,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         choosedRowNumber = indexPath.row
-
         performSegue(withIdentifier: "showDetails", sender: nil)
-       
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,32 +46,21 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! MoviesTableViewCell
-        
         let movieViewModel = self.movieListViewModel.movieAtIndex(indexPath.row)
-        
         DispatchQueue.main.async {
-            
             let imageData = try! Data(contentsOf:URL(string: movieViewModel.movieImageUrl)!)
             cell.movieImage.image = UIImage(data: imageData)
-            
             cell.titleLabel.text = movieViewModel.movieName
             cell.detailsLabel.text = movieViewModel.movieDetail
-            
-            
         }
-        
         return cell
-        
     }
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
             let destinationVC = segue.destination as! DetailsVC
-            destinationVC.movieListViewModel1 = self.movieListViewModel
+            destinationVC.movieListViewModel = self.movieListViewModel
             destinationVC.rowNumber = choosedRowNumber
-            
         }
     }
-    
 }

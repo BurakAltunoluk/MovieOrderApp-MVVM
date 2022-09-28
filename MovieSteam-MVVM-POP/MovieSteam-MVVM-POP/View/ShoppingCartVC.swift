@@ -22,15 +22,11 @@ class ShoppingCartVC: UIViewController {
         if temporaryData.addedToBasket.count > 0  {
             self.tabBarItem.badgeValue = String(temporaryData.addedToBasket.count)}
         totalLabel.text =  "Total: £\(String(format: "%.01f",temporaryData.totalPayment()))"
-        
-       
-      
         tableView.reloadData()
     }
     
     @IBAction func payButtonPressed(_ sender: UIButton) {
     
-        
     }
 
 }
@@ -43,7 +39,7 @@ extension ShoppingCartVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
 
-        cell.movieNameLabel.text = temporaryData.movieAtIndex(indexPath.row).movieName
+        cell.movieNameLabel.text = "- \(temporaryData.movieAtIndex(indexPath.row).movieName)"
         cell.moviePriceLabel.text = temporaryData.movieAtIndex(indexPath.row).MoviePrice
         return cell
     }
@@ -56,10 +52,6 @@ extension ShoppingCartVC: UITableViewDelegate, UITableViewDataSource {
              NotificationCenter.default.post(name: Notification.Name("delete"), object: nil)
              dismiss(animated: true)
             tableView.reloadData()
-            
         }
     }
-    
-    
-    
 }

@@ -12,19 +12,15 @@ class TabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector:#selector(doneResponse) , name: Notification.Name("done"), object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(doneResponse) , name: Notification.Name("addToCart"), object: nil)
             
         NotificationCenter.default.addObserver(self, selector:#selector(tabbarBadgeValueDown) , name: Notification.Name("delete"), object: nil)
-        
     }
-    
 
     @objc func doneResponse() {
         self.selectedIndex = 1 }
 
-    
     @objc func tabbarBadgeValueDown() {
-    
         if var currentBadgeValue = Int(tabBar.items![1].badgeValue ?? "0") {
             if currentBadgeValue > 0 {
                 currentBadgeValue -= 1
@@ -32,10 +28,7 @@ class TabbarController: UITabBarController {
                     self.tabBar.items![1].badgeValue = "\(currentBadgeValue)"
                 }
             }
-          
         }
-     
-    
     }
     
 }

@@ -11,8 +11,6 @@ import Foundation
 struct ShoppingCartViewModel {
     
     var addedToBasket: [ShoppingCart]
-    
-  
     func rowNumberOfSection() -> Int {
         return self.addedToBasket.count
     }
@@ -20,10 +18,7 @@ struct ShoppingCartViewModel {
     mutating func deleteMovie(_ row:Int) -> Double {
         
         addedToBasket.remove(at:row)
-    
         return totalPayment()
-    
-        
     }
     
     func movieAtIndex(_ index:Int) -> ShoppingCart {
@@ -32,9 +27,7 @@ struct ShoppingCartViewModel {
     }
     
     mutating func addNew(name: String, price: String) {
-       
         self.addedToBasket.append(contentsOf: [ShoppingCart.init(movieName: name, MoviePrice: price)])
-       
     }
     
     func totalPayment() -> Double {

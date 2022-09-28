@@ -9,19 +9,17 @@ import UIKit
 
 class DetailsVC: UIViewController {
     
-    var movieListViewModel1: MovieListViewModel!
+    var movieListViewModel: MovieListViewModel!
     var rowNumber = 0
     
-    @IBOutlet var addToCartOutlet: UIButton!
-    @IBOutlet var movieDetails: UITextView!
-    @IBOutlet var movieTitle: UILabel!
-    @IBOutlet var movieImage: UIImageView!
+    @IBOutlet private var addToCartOutlet: UIButton!
+    @IBOutlet private var movieDetails: UITextView!
+    @IBOutlet private var movieTitle: UILabel!
+    @IBOutlet private var movieImage: UIImageView!
     
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-      
     }
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
@@ -30,32 +28,23 @@ class DetailsVC: UIViewController {
     
     @IBAction func addToCartPressed(_ sender: UIButton) {
         
-        let movieViewModel = self.movieListViewModel1.movieAtIndex(rowNumber)
+        let movieViewModel = self.movieListViewModel.movieAtIndex(rowNumber)
         temporaryData.addNew(name: movieViewModel.movieName, price: movieViewModel.moviePrice)
         print(temporaryData.addedToBasket)
-    
-        NotificationCenter.default.post(name: Notification.Name("done"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("addToCart"), object: nil)
         dismiss(animated: true)
-       
-            
-        
     }
     
     private func setup() {
-        
-        if movieListViewModel1 != nil {
-            let movieViewModel = self.movieListViewModel1.movieAtIndex(rowNumber)
+        if movieListViewModel != nil {
+            let movieViewModel = self.movieListViewModel.movieAtIndex(rowNumber)
             movieTitle.text = movieViewModel.movieName
             let imageData = try? Data(contentsOf:URL(string:movieViewModel.movieImageUrl)!)
             movieImage.image = UIImage(data: imageData!)
             movieDetails.text = movieViewModel.movieDetail
             addToCartOutlet.setTitle("Add Cart £\(movieViewModel.moviePrice)", for: .normal)
-            
-            
         }
-        
     }
 
-    
 }
 
