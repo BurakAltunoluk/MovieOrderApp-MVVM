@@ -248,6 +248,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" selectedImage="cart" id="ewV-KB-Qb3"/>
                     <connections>
+                        <outlet property="payButtonOutlet" destination="LyJ-sx-y3Y" id="gsA-NW-tMq"/>
                         <outlet property="tableView" destination="YIt-iJ-p9e" id="eQ4-a1-JSi"/>
                         <outlet property="totalLabel" destination="giW-iG-U0M" id="ccS-uo-FaI"/>
                     </connections>

@@ -7,10 +7,11 @@
 
 import UIKit
 
-class ShoppingCartVC: UIViewController {
+final class ShoppingCartVC: UIViewController {
      
-    @IBOutlet var totalLabel: UILabel!
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var payButtonOutlet: UIButton!
+    @IBOutlet private var totalLabel: UILabel!
+    @IBOutlet private var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +21,27 @@ class ShoppingCartVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if temporaryData.addedToBasket.count > 0  {
+            payButtonOutlet.isEnabled = true
             self.tabBarItem.badgeValue = String(temporaryData.addedToBasket.count)}
-        totalLabel.text =  "Total: £\(String(format: "%.01f",temporaryData.totalPayment()))"
+        totalLabel.text =  "Total: £\(String(format: "%.02f",temporaryData.totalPayment()))"
         tableView.reloadData()
     }
     
-    @IBAction func payButtonPressed(_ sender: UIButton) {
+    @IBAction private func payButtonPressed(_ sender: UIButton) {
+        temporaryData.addedToBasket.removeAll()
+        self.tableView.reloadData()
+        self.tabBarItem.badgeValue = nil
+        totalLabel.text =  "Total: £\(String(format: "%.02f",temporaryData.totalPayment()))"
+        payButtonOutlet.isEnabled = false
+        alertMenu()
+        
+    }
     
+    private func alertMenu() {
+        let alert = UIAlertController(title: "Payment Sussecfull", message: "Thank you for your purchase", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(alertAction)
+        present(alert, animated: true)
     }
 
 }
@@ -38,7 +53,6 @@ extension ShoppingCartVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
-
         cell.movieNameLabel.text = "- \(temporaryData.movieAtIndex(indexPath.row).movieName)"
         cell.moviePriceLabel.text = temporaryData.movieAtIndex(indexPath.row).MoviePrice
         return cell

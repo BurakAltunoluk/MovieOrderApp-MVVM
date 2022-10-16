@@ -21,7 +21,6 @@ final class MainVC: UIViewController {
     
     private func getDataFromApi () {
         let url = URL(string: "https://raw.githubusercontent.com/BurakAltunoluk/APIs-Sample/main/MoviesAPI.json")!
-        
         WebService().getData(url: url) { data in
             if let data = data {
                 self.movieListViewModel = MovieListViewModel(movieDataList: data)

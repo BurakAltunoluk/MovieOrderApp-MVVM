@@ -11,12 +11,12 @@ import Foundation
 struct ShoppingCartViewModel {
     
     var addedToBasket: [ShoppingCart]
+    
     func rowNumberOfSection() -> Int {
         return self.addedToBasket.count
     }
     
     mutating func deleteMovie(_ row:Int) -> Double {
-        
         addedToBasket.remove(at:row)
         return totalPayment()
     }
@@ -38,9 +38,7 @@ struct ShoppingCartViewModel {
         }
         return total
     }
-    
 }
-
 
 struct MovieViewModel {
     
@@ -64,12 +62,10 @@ struct MovieViewModel {
     init(_ movie: MovieModel){
         self.movieData = movie
     }
-    
 }
 
 struct MovieListViewModel {             
     var movieDataList: [MovieModel]
-    
     func rowNumberSection() -> Int {
         return self.movieDataList.count
     }
